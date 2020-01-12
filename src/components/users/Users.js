@@ -8,11 +8,13 @@ const Users = ({ users, loading }) => {
     return <Spinner />;
   } else {
     return (
-      <div style={userStyle}>
-        {users.map(user => (
-          <UserItem key={user.id} user={user} />
-        ))}
-      </div>
+      users && (
+        <div style={userStyle}>
+          {users.map(user => (
+            <UserItem key={user.id} user={user} />
+          ))}
+        </div>
+      )
     );
   }
 };
@@ -20,7 +22,7 @@ const Users = ({ users, loading }) => {
 Users.propTypes = {
   users: PropTypes.array.isRequired,
   loading: PropTypes.bool.isRequired
-}
+};
 
 const userStyle = {
   display: 'grid',
